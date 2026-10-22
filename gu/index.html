@@ -472,6 +472,13 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 .lb-count{position:absolute;left:0;right:0;bottom:calc(26px + env(safe-area-inset-bottom,0px));text-align:center;font-family:var(--f-label);font-size:12px;letter-spacing:.34em;color:var(--gold)}
 @media (max-width:640px){.lb-prev,.lb-next{top:auto;bottom:calc(14px + env(safe-area-inset-bottom,0px));translate:none}.lb-count{bottom:calc(30px + env(safe-area-inset-bottom,0px))}}
 
+/* ---------- back to top ---------- */
+.totop{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:45;width:50px;height:50px;padding:0;border:0;border-radius:50%;background:rgba(7,29,23,.84);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--gold-hi);display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 30px -10px rgba(0,0,0,.6);opacity:0;transform:translateY(14px) scale(.9);pointer-events:none;transition:opacity .4s ease,transform .45s var(--ease)}
+.totop.show{opacity:1;transform:none;pointer-events:auto}
+.totop:hover .arrow{transform:translateY(-3px)}
+.music[hidden] + .totop{bottom:calc(18px + env(safe-area-inset-bottom,0px))}
+.totop .ring{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.totop .arrow{position:relative;width:18px;height:18px;transition:transform .3s var(--ease)}
 /* ---------- music ---------- */
 .music{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:45;width:54px;height:54px;border-radius:50%;border:1px solid var(--gold);background:rgba(7,29,23,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 30px -10px rgba(0,0,0,.6);animation:fadeIn .8s ease both}
 .music .bars{display:flex;align-items:flex-end;gap:3px;height:18px}
@@ -755,6 +762,8 @@ body{font-size:20.5px}
   </div>
 </footer>
 
+<button class="music" id="music" type="button" aria-label="સંગીત બંધ કરો" aria-pressed="true" hidden><span class="bars"><i></i><i></i><i></i><i></i></span></button>
+<button class="totop" id="toTop" type="button" aria-label="ઉપર જાઓ"><svg class="ring" viewBox="0 0 50 50" aria-hidden="true"><circle cx="25" cy="25" r="23.5" fill="none" stroke="rgba(242,223,167,.22)" stroke-width="1.4"/><circle id="toTopRing" cx="25" cy="25" r="23.5" fill="none" stroke="#C9A55A" stroke-width="1.8" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/></svg><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
 <div class="toast" id="toast" role="status"></div>
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="ફોટો વ્યૂઅર">
   <div class="lb-stage"><img class="lb-img" id="lbImg" alt=""><div class="lb-cap"><span class="cap-script" id="lbCap"></span><span class="cap-label" id="lbSub"></span></div></div>
@@ -799,7 +808,7 @@ const INVITE = {
   saveTheDate:{ date:'2026-12-10' },
   venue:{ when:'બધા પ્રસંગો · ૮ – ૧૦ ડિસેમ્બર', name:'શ્રી નંદકિશોર હોલ', address:'જંક્શન પ્લોટ મેઇન રોડ, જંક્શન રેલવે સ્ટેશનની સામે, રેલવે ગાર્ડ ક્વાર્ટર્સ પાસે, ગાયકવાડી, શાસ્ત્રી નગર, રાજકોટ, ગુજરાત ૩૬૦૦૦૧',
     mapsQuery:'Shri Nandkishore Hall, Junction Plot Main Road, opposite Junction Railway Station, Gayakwadi, Shastri Nagar, Rajkot, Gujarat 360001' },
-  ui:{ directions:'રસ્તો જુઓ', copyAddress:'સરનામું કૉપિ કરો', mapNote:'પ્રતીકાત્મક નકશો', mapFont:'Rasa, Noto Serif Gujarati, serif' },
+  ui:{ directions:'રસ્તો જુઓ', copyAddress:'સરનામું કૉપિ કરો', mapNote:'પ્રતીકાત્મક નકશો', mapFont:'Rasa, Noto Serif Gujarati, serif', playMusic:'સંગીત ચાલુ કરો', pauseMusic:'સંગીત બંધ કરો' },
   map2:{ station:'રાજકોટ જંક્શન', rail:'રેલવે', road:'જંક્શન પ્લોટ મેઇન રોડ', quarters:'રેલવે ક્વાર્ટર્સ', area:'શાસ્ત્રી નગર', area2:'ગાયકવાડી', pin:'શ્રી નંદકિશોર હોલ', north:'ઉ' },
   events:[
     { id:'sangeet', name:'સાંજી ના ગીત', icon:'sangeet', color:'#B0386A', dayKey:'2026-12-08', dayLabel:'મંગળવાર, ૮ ડિસેમ્બર',
@@ -830,7 +839,7 @@ const INVITE = {
   tips:[
     { icon:'pin', title:'કેવી રીતે પહોંચવું', text:'રાજકોટ જંક્શન રેલવે સ્ટેશનની બરાબર સામે, જંક્શન પ્લોટ મેઇન રોડ પર, ગાયકવાડીમાં રેલવે ગાર્ડ ક્વાર્ટર્સ પાસે.', copy:'Shri Nandkishore Hall, Junction Plot Main Road, opposite Junction Railway Station, near the Railway Guard quarters, Gayakwadi, Shastri Nagar, Rajkot, Gujarat 360001' }
   ],
-  music:'' /* optional: URL of your own song (mp3). Leave empty for the built-in tanpura & santoor. */
+  music:'' /* the song file; starts softly when the seal is tapped */
 };
 </script>
 
@@ -1121,85 +1130,18 @@ const Petals = (() => {
   return { start, burst };
 })();
 
-/* ---------------- music (synthesised tanpura + santoor) ---------------- */
+/* ---------------- music (your song, starts when the seal is tapped) ---------------- */
 const Music = (() => {
-  let ctx, master, bus, timer, nextT = 0, step = 0, melT = 0, melIdx = 4, phraseLeft = 0, on = false, el = null;
-  const SA = 146.83; // D3
-  const TANPURA = [SA * .75, SA, SA, SA * .5];
-  const YAMAN = [.75, 5 / 6, 15 / 16, 1, 9 / 8, 5 / 4, 45 / 32, 3 / 2, 5 / 3, 15 / 8, 2];
-  function impulse(sec) {
-    const len = Math.floor(ctx.sampleRate * sec), b = ctx.createBuffer(2, len, ctx.sampleRate);
-    for (let c = 0; c < 2; c++) { const d = b.getChannelData(c); for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2.8); }
-    return b;
-  }
-  function setup() {
-    const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return false;
-    ctx = new AC(); master = ctx.createGain(); master.gain.value = 0;
-    const comp = ctx.createDynamicsCompressor(); master.connect(comp); comp.connect(ctx.destination);
-    const rev = ctx.createConvolver(); rev.buffer = impulse(3.4);
-    const wet = ctx.createGain(); wet.gain.value = .6; const dry = ctx.createGain(); dry.gain.value = .75;
-    bus = ctx.createGain(); bus.connect(dry); bus.connect(rev); rev.connect(wet); wet.connect(master); dry.connect(master);
-    return true;
-  }
-  function pluck(fr, t, g = .05) {
-    for (let h = 1; h <= 10; h++) {
-      const o = ctx.createOscillator(), a = ctx.createGain();
-      o.frequency.value = fr * h * (1 + (Math.random() - .5) * .0014);
-      const amp = g / Math.pow(h, 1.05) * (h === 2 ? 1.3 : 1);
-      const atk = h > 3 ? .12 + h * .05 : .006;
-      a.gain.setValueAtTime(0, t); a.gain.linearRampToValueAtTime(amp, t + atk); a.gain.setTargetAtTime(0, t + atk, h > 3 ? .9 : 1.5);
-      o.connect(a); a.connect(bus); o.start(t); o.stop(t + 6);
-    }
-  }
-  function santoor(fr, t, g = .045) {
-    [-1.5, 1.5].forEach(c => {
-      const o = ctx.createOscillator(), a = ctx.createGain(); o.type = 'triangle';
-      o.frequency.value = fr * Math.pow(2, c / 1200);
-      a.gain.setValueAtTime(0, t); a.gain.linearRampToValueAtTime(g, t + .004); a.gain.setTargetAtTime(0, t + .004, .42);
-      o.connect(a); a.connect(bus); o.start(t); o.stop(t + 3);
-    });
-    const o2 = ctx.createOscillator(), a2 = ctx.createGain(); o2.frequency.value = fr * 3;
-    a2.gain.setValueAtTime(g * .25, t); a2.gain.setTargetAtTime(0, t, .12); o2.connect(a2); a2.connect(bus); o2.start(t); o2.stop(t + 1);
-  }
-  function bell(t) {
-    [[1, .16, 2.6], [2.01, .07, 1.8], [2.76, .07, 1.4], [4.07, .04, 1], [5.4, .03, .7]].forEach(([r, g, d]) => {
-      const o = ctx.createOscillator(), a = ctx.createGain(); o.frequency.value = 587.33 * r;
-      a.gain.setValueAtTime(0, t); a.gain.linearRampToValueAtTime(g, t + .005); a.gain.setTargetAtTime(0, t + .005, d / 3);
-      o.connect(a); a.connect(bus); o.start(t); o.stop(t + d * 2);
-    });
-  }
-  function schedule() {
-    const ahead = ctx.currentTime + .5;
-    while (nextT < ahead) { pluck(TANPURA[step % 4], nextT); nextT += 1.2; step++; }
-    while (melT < ahead) {
-      if (phraseLeft <= 0) { phraseLeft = 5 + Math.floor(Math.random() * 4); melT += 2.6 + Math.random() * 2.4; melIdx = [3, 5, 7][Math.floor(Math.random() * 3)]; continue; }
-      const mv = [-2, -1, -1, 1, 1, 2][Math.floor(Math.random() * 6)];
-      melIdx = Math.max(0, Math.min(YAMAN.length - 1, melIdx + mv));
-      if (phraseLeft === 1) melIdx = [3, 7, 10][Math.floor(Math.random() * 3)];
-      santoor(SA * 2 * YAMAN[melIdx], melT); if (Math.random() < .35) santoor(SA * 2 * YAMAN[melIdx], melT + .13, .025);
-      melT += .38 + Math.random() * .34; phraseLeft--;
-    }
-  }
-  function fade(to, sec) { const t = ctx.currentTime; master.gain.cancelScheduledValues(t); master.gain.setValueAtTime(master.gain.value, t); master.gain.linearRampToValueAtTime(to, t + sec); }
-  function start() {
-    try {
-      if (!ctx && !setup()) return;
-      ctx.resume(); bell(ctx.currentTime + .05);
-      if (INVITE.music) { el = new Audio(INVITE.music); el.loop = true; el.volume = .7; el.play().catch(() => {}); fade(.9, .2); }
-      else { nextT = ctx.currentTime + .9; melT = ctx.currentTime + 4; fade(.9, 3); timer = setInterval(schedule, 150); }
-      on = true; ui();
-    } catch (e) { /* audio is optional */ }
-  }
-  function toggle() {
-    if (!ctx) { start(); return; }
-    on = !on;
-    if (on) { ctx.resume(); if (el) el.play().catch(() => {}); else { nextT = Math.max(nextT, ctx.currentTime + .1); melT = Math.max(melT, ctx.currentTime + 1); clearInterval(timer); timer = setInterval(schedule, 150); } fade(.9, 1.2); }
-    else { fade(0, .6); if (el) el.pause(); clearInterval(timer); setTimeout(() => { if (!on) ctx.suspend(); }, 700); }
-    ui();
-  }
-  function ui() { const b = $('#music'); b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); b.setAttribute('aria-label', on ? 'Pause music' : 'Play music'); }
-  document.addEventListener('visibilitychange', () => { if (!ctx || !on) return; if (document.hidden) { ctx.suspend(); if (el) el.pause(); } else { ctx.resume(); if (el) el.play().catch(() => {}); } });
-  return { start, toggle };
+  let el = null, on = false, fadeT = null;
+  if (INVITE.music) { el = new Audio(); el.src = INVITE.music; el.loop = true; el.preload = 'auto'; }
+  function ui() { const b = $('#music'); if (!b) return; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); b.setAttribute('aria-label', on ? INVITE.ui.pauseMusic : INVITE.ui.playMusic); }
+  function fadeIn() { clearInterval(fadeT); let v = 0; try { el.volume = 0; } catch (e) {} fadeT = setInterval(() => { v = Math.min(.85, v + .05); try { el.volume = v; } catch (e) {} if (v >= .85) clearInterval(fadeT); }, 120); }
+  function play() { if (!el) return; const p = el.play(); fadeIn(); on = true; ui(); if (p && p.catch) p.catch(() => { on = false; ui(); }); }
+  function pause() { if (!el) return; el.pause(); on = false; ui(); }
+  function start() { play(); }
+  function toggle() { on ? pause() : play(); }
+  document.addEventListener('visibilitychange', () => { if (!el || !on) return; if (document.hidden) el.pause(); else el.play().catch(() => {}); });
+  return { start, toggle, has: () => !!el };
 })();
 
 /* ---------------- fill content ---------------- */
@@ -1365,9 +1307,11 @@ let opened = false;
 const gate = $('#gate');
 function openInvite() {
   if (opened) return; opened = true;
+  Music.start();
   const sr = $('#seal').getBoundingClientRect();
   const finish = () => {
     gate.remove(); document.body.classList.remove('locked'); document.body.classList.add('opened');
+    if (Music.has()) $('#music').hidden = false;
     if (location.hash && document.getElementById(location.hash.slice(1))) document.getElementById(location.hash.slice(1)).scrollIntoView();
   };
   if (reduce) { gate.classList.add('fade'); document.body.classList.add('opened'); setTimeout(finish, 700); return; }
@@ -1381,6 +1325,7 @@ function openInvite() {
 }
 gate.addEventListener('click', openInvite);
 gate.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openInvite(); } });
+$('#music').addEventListener('click', Music.toggle);
 Petals.start();
 
 /* ---------------- reveal on scroll ---------------- */
@@ -1392,8 +1337,13 @@ if (!reduce && 'IntersectionObserver' in window) {
 /* ---------------- scroll-linked ---------------- */
 const tl = $('#timeline');
 let ticking = false;
+const toTop = $('#toTop'), toTopRing = $('#toTopRing');
+toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }));
 function onScroll() {
   ticking = false;
+  const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+  toTop.classList.toggle('show', scrollY > innerHeight * .9);
+  toTopRing.setAttribute('stroke-dashoffset', (100 - Math.min(1, scrollY / max) * 100).toFixed(1));
   const r = tl.getBoundingClientRect();
   const p = Math.min(1, Math.max(0, (innerHeight * .62 - r.top) / r.height));
   tl.style.setProperty('--p', p.toFixed(3));
