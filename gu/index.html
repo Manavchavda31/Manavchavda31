@@ -649,7 +649,6 @@ body{font-size:20.5px}
     <div class="album-track" id="albumTrack" aria-label="ફોટો આલ્બમ"></div>
     <div class="album-dots" id="albumDots" aria-label="ફોટો પસંદ કરો"></div>
     <p class="album-quote rv">“દરેક પળે આ પ્રેમ વધતો જ ગયો. દરેક પ્રકરણમાં, દરેક સફરમાં, કાયમનો સાથ શરૂ થાય છે એક સ્મિતથી.”</p>
-    <p class="credit rv">ફોટોગ્રાફ્સ: <a href="https://www.instagram.com/md_photography_rajkot/" target="_blank" rel="noopener">@md_photography_rajkot</a></p>
   </div>
 </section>
 
@@ -751,7 +750,6 @@ body{font-size:20.5px}
   </div>
 </footer>
 
-<button class="music" id="music" type="button" aria-label="સંગીત બંધ કરો" aria-pressed="true" hidden><span class="bars"><i></i><i></i><i></i><i></i></span></button>
 <div class="toast" id="toast" role="status"></div>
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="ફોટો વ્યૂઅર">
   <div class="lb-stage"><img class="lb-img" id="lbImg" alt=""><div class="lb-cap"><span class="cap-script" id="lbCap"></span><span class="cap-label" id="lbSub"></span></div></div>
@@ -798,9 +796,9 @@ const INVITE = {
     plusCode:'F3FJ+42G',
     mapsQuery:'F3FJ+42G Bajrang Vadi, Jamnagar - Rajkot Hwy, near Victoria Bridge, Swaminarayan Nagar, Jamnagar, Gujarat 361001' },
   events:[
-    { id:'sangeet', name:'સંગીત સંધ્યા', icon:'sangeet', color:'#B0386A', allDay:'2026-12-08', dayLabel:'મંગળવાર, ૮ ડિસેમ્બર',
-      day:'મંગળવાર · ૮ ડિસેમ્બર ૨૦૨૬', when:'સાંજે', where:'બજરંગ વાડી, જામનગર', dress:'ઉત્સવનો / ઇન્ડો-વેસ્ટર્ન પહેરવેશ',
-      blurb:'બંને પરિવારોના ગીતો અને પરફોર્મન્સ સાથે ઉત્સવની શરૂઆત. નાચવા તૈયાર થઈને આવજો.' },
+    { id:'sangeet', name:'સાંજી ના ગીત', icon:'sangeet', color:'#B0386A', allDay:'2026-12-08', dayLabel:'મંગળવાર, ૮ ડિસેમ્બર',
+      day:'મંગળવાર · ૮ ડિસેમ્બર ૨૦૨૬', when:'સાંજે', where:'બજરંગ વાડી, જામનગર', dress:'પરંપરાગત / ઉત્સવનો પહેરવેશ',
+      blurb:'બંને પરિવારો સાથે મળીને ગવાતા પરંપરાગત લગ્નગીતોની સાંજથી ઉત્સવની શુભ શરૂઆત.' },
     { id:'mandva', name:'માંડવા મુહૂર્ત', icon:'mandva', color:'#C0702A', allDay:'2026-12-09', dayLabel:'બુધવાર, ૯ ડિસેમ્બર',
       day:'બુધવાર · ૯ ડિસેમ્બર ૨૦૨૬', when:'સવારે', where:'બજરંગ વાડી, જામનગર', dress:'પરંપરાગત પહેરવેશ',
       blurb:'પૂજા અને વડીલોના આશીર્વાદ સાથે માંડવો રોપીને લગ્નવિધિની શુભ શરૂઆત.' },
@@ -1185,7 +1183,7 @@ const Music = (() => {
     else { fade(0, .6); if (el) el.pause(); clearInterval(timer); setTimeout(() => { if (!on) ctx.suspend(); }, 700); }
     ui();
   }
-  function ui() { const b = $('#music'); b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); b.setAttribute('aria-label', on ? 'સંગીત બંધ કરો' : 'સંગીત ચાલુ કરો'); }
+  function ui() { const b = $('#music'); b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); b.setAttribute('aria-label', on ? 'Pause music' : 'Play music'); }
   document.addEventListener('visibilitychange', () => { if (!ctx || !on) return; if (document.hidden) { ctx.suspend(); if (el) el.pause(); } else { ctx.resume(); if (el) el.play().catch(() => {}); } });
   return { start, toggle };
 })();
@@ -1352,11 +1350,9 @@ let opened = false;
 const gate = $('#gate');
 function openInvite() {
   if (opened) return; opened = true;
-  Music.start();
   const sr = $('#seal').getBoundingClientRect();
   const finish = () => {
     gate.remove(); document.body.classList.remove('locked'); document.body.classList.add('opened');
-    const mb = $('#music'); mb.hidden = false;
     if (location.hash && document.getElementById(location.hash.slice(1))) document.getElementById(location.hash.slice(1)).scrollIntoView();
   };
   if (reduce) { gate.classList.add('fade'); document.body.classList.add('opened'); setTimeout(finish, 700); return; }
@@ -1370,7 +1366,6 @@ function openInvite() {
 }
 gate.addEventListener('click', openInvite);
 gate.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openInvite(); } });
-$('#music').addEventListener('click', Music.toggle);
 Petals.start();
 
 /* ---------------- reveal on scroll ---------------- */

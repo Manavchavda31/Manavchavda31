@@ -597,7 +597,6 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
     <div class="album-track" id="albumTrack" aria-label="Photo album"></div>
     <div class="album-dots" id="albumDots" aria-label="Choose photo"></div>
     <p class="album-quote rv">“With every moment, it only grew. Through every chapter, through every mile, forever starts with just one smile.”</p>
-    <p class="credit rv">Photographs by <a href="https://www.instagram.com/md_photography_rajkot/" target="_blank" rel="noopener">@md_photography_rajkot</a></p>
   </div>
 </section>
 
@@ -699,7 +698,6 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
   </div>
 </footer>
 
-<button class="music" id="music" type="button" aria-label="Pause music" aria-pressed="true" hidden><span class="bars"><i></i><i></i><i></i><i></i></span></button>
 <div class="toast" id="toast" role="status"></div>
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
   <div class="lb-stage"><img class="lb-img" id="lbImg" alt=""><div class="lb-cap"><span class="cap-script" id="lbCap"></span><span class="cap-label" id="lbSub"></span></div></div>
@@ -746,9 +744,9 @@ const INVITE = {
     plusCode:'F3FJ+42G',
     mapsQuery:'F3FJ+42G Bajrang Vadi, Jamnagar - Rajkot Hwy, near Victoria Bridge, Swaminarayan Nagar, Jamnagar, Gujarat 361001' },
   events:[
-    { id:'sangeet', name:'Sangeet', icon:'sangeet', color:'#B0386A', allDay:'2026-12-08', dayLabel:'Tuesday, 8 December',
-      day:'Tuesday · 8 December 2026', when:'Evening', where:'Bajrang Vadi, Jamnagar', dress:'Festive & Indo-western',
-      blurb:'The celebrations begin with an evening of songs and performances by both families. Come ready to dance.' },
+    { id:'sangeet', name:'Sanji na Geet', icon:'sangeet', color:'#B0386A', allDay:'2026-12-08', dayLabel:'Tuesday, 8 December',
+      day:'Tuesday · 8 December 2026', when:'Evening', where:'Bajrang Vadi, Jamnagar', dress:'Traditional & festive',
+      blurb:'The celebrations begin with an evening of traditional wedding songs, sung together by both families.' },
     { id:'mandva', name:'Mandva Muharat', icon:'mandva', color:'#C0702A', allDay:'2026-12-09', dayLabel:'Wednesday, 9 December',
       day:'Wednesday · 9 December 2026', when:'Morning', where:'Bajrang Vadi, Jamnagar', dress:'Traditional',
       blurb:'The auspicious start of the wedding rituals, as the mandap is raised with prayers and blessings from the elders.' },
@@ -1298,11 +1296,9 @@ let opened = false;
 const gate = $('#gate');
 function openInvite() {
   if (opened) return; opened = true;
-  Music.start();
   const sr = $('#seal').getBoundingClientRect();
   const finish = () => {
     gate.remove(); document.body.classList.remove('locked'); document.body.classList.add('opened');
-    const mb = $('#music'); mb.hidden = false;
     if (location.hash && document.getElementById(location.hash.slice(1))) document.getElementById(location.hash.slice(1)).scrollIntoView();
   };
   if (reduce) { gate.classList.add('fade'); document.body.classList.add('opened'); setTimeout(finish, 700); return; }
@@ -1316,7 +1312,6 @@ function openInvite() {
 }
 gate.addEventListener('click', openInvite);
 gate.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openInvite(); } });
-$('#music').addEventListener('click', Music.toggle);
 Petals.start();
 
 /* ---------------- reveal on scroll ---------------- */
