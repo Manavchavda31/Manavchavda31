@@ -4,21 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Kaushik weds Janvi · શુભ લગ્ન</title>
-<meta name="description" content="ચાવડા પરિવાર તરફથી સ્નેહભર્યું આમંત્રણ · ૮ – ૧૦ ડિસેમ્બર ૨૦૨૬ · બજરંગ વાડી, જામનગર">
+<meta name="description" content="ચાવડા પરિવાર તરફથી સ્નેહભર્યું આમંત્રણ · ૮ – ૧૦ ડિસેમ્બર ૨૦૨૬ · રાજકોટ અને જામનગર">
 <meta property="og:title" content="Kaushik weds Janvi · શુભ લગ્ન">
-<meta property="og:description" content="ચાવડા પરિવાર તરફથી સ્નેહભર્યું આમંત્રણ · ૮ – ૧૦ ડિસેમ્બર ૨૦૨૬ · બજરંગ વાડી, જામનગર">
+<meta property="og:description" content="ચાવડા પરિવાર તરફથી સ્નેહભર્યું આમંત્રણ · ૮ – ૧૦ ડિસેમ્બર ૨૦૨૬ · રાજકોટ અને જામનગર">
 <meta property="og:image" content="https://manavchavda31.github.io/Manavchavda31/share/og-gu.jpg">
 <meta property="og:image:secure_url" content="https://manavchavda31.github.io/Manavchavda31/share/og-gu.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Kaushik અને Janvi, ૮ – ૧૦ ડિસેમ્બર ૨૦૨૬, જામનગર">
+<meta property="og:image:alt" content="Kaushik અને Janvi, ૮ – ૧૦ ડિસેમ્બર ૨૦૨૬, રાજકોટ અને જામનગર">
 <meta property="og:url" content="https://manavchavda31.github.io/Manavchavda31/gu/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kaushik weds Janvi">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kaushik weds Janvi · શુભ લગ્ન">
-<meta name="twitter:description" content="ચાવડા પરિવાર તરફથી સ્નેહભર્યું આમંત્રણ · ૮ – ૧૦ ડિસેમ્બર ૨૦૨૬ · બજરંગ વાડી, જામનગર">
+<meta name="twitter:description" content="ચાવડા પરિવાર તરફથી સ્નેહભર્યું આમંત્રણ · ૮ – ૧૦ ડિસેમ્બર ૨૦૨૬ · રાજકોટ અને જામનગર">
 <meta name="twitter:image" content="https://manavchavda31.github.io/Manavchavda31/share/og-gu.jpg">
 <meta name="theme-color" content="#0B2B22">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230B2B22'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia' font-style='italic' font-size='26' fill='%23F2DFA7'%3EK%26J%3C/text%3E%3C/svg%3E">
@@ -338,6 +338,9 @@ button{font:inherit;color:inherit}
   .day-mark::before{left:50%;top:-6px;transform:translateX(-50%)}
 }
 /* ---------- venue ---------- */
+.venues{display:grid;gap:clamp(64px,10vw,112px)}
+.venue-when{font-family:var(--f-label);font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--rani)}
+@media (min-width:880px){.venue.flip .map{order:2}}
 .venue{display:grid;grid-template-columns:1fr;gap:34px;align-items:center}
 .map{position:relative;border-radius:24px;overflow:hidden;background:#F8EEE4;border:1px solid var(--line);box-shadow:0 30px 60px -40px rgba(43,32,25,.55);max-width:100%}
 .map svg{display:block;width:100%;height:auto}
@@ -555,6 +558,7 @@ body{font-size:20.5px}
 .ev-blurb,.tips p,.about,.pparents{font-size:18.5px}
 .ev-meta dd{font-size:18.5px}
 .couple-line span{white-space:nowrap}
+.venue-when{letter-spacing:.04em!important;text-transform:none!important;font-size:17px!important}
 .cover-bottom span{font-size:14px!important}
 .cover-names,.names,.pname,.footer .sig{font-family:"Cormorant Garamond","Cormorant",Georgia,serif!important;font-style:normal}
 .names{font-weight:500!important;line-height:.95!important;font-size:clamp(54px,15.5vw,92px)!important}
@@ -715,13 +719,27 @@ body{font-size:20.5px}
 <section class="band blush texture" id="venue">
   <div class="wrap">
     <header class="sh rv">
-      <p class="eyebrow">સ્થળ</p>
-      <h2 class="h2">પધારો <em>જામનગર</em></h2>
+      <p class="eyebrow">સ્થળો</p>
+      <h2 class="h2">રાજકોટથી <em>જામનગર</em></h2>
       <div class="orn" data-orn></div>
     </header>
+    <div class="venues">
     <div class="venue">
+      <div class="map rv rv-zoom" id="map2"></div>
+      <div class="venue-info rv" style="--d:.15s">
+        <p class="venue-when" data-bind="venue2.when">Days 1 &amp; 2 · Janprastav</p>
+        <h3 data-bind="venue2.name">Shri Nandkishore Hall</h3>
+        <p class="addr" data-bind="venue2.address">Junction Plot Main Road, opposite Junction Railway Station, near the Railway Guard quarters, Gayakwadi, Shastri Nagar, Rajkot, Gujarat 360001</p>
+        <div class="btns">
+          <a class="btn btn-dark" id="dirBtn2" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11 21 3l-8 18-2-8-8-2Z"/></svg><span data-bind="ui.directions">Get directions</span></a>
+        </div>
+        <ul class="tips" id="tips2"></ul>
+      </div>
+    </div>
+    <div class="venue flip">
       <div class="map rv rv-zoom" id="map"></div>
       <div class="venue-info rv" style="--d:.15s">
+        <p class="venue-when" data-bind="venue.when">Day 3 · Lagan Muhurat</p>
         <h3 data-bind="venue.name">Bajrang Vadi</h3>
         <p class="addr" data-bind="venue.address">Jamnagar – Rajkot Highway, near Victoria Bridge, Swaminarayan Nagar, Jamnagar, Gujarat 361001</p>
         <div class="btns">
@@ -729,6 +747,7 @@ body{font-size:20.5px}
         </div>
         <ul class="tips" id="tips"></ul>
       </div>
+    </div>
     </div>
   </div>
 </section>
@@ -744,7 +763,7 @@ body{font-size:20.5px}
     <p class="msg rv">આપની હાજરી એ જ અમારા માટે સૌથી મોટી ભેટ છે. હાસ્ય, ઉમંગ અને ગરબાના તાલ સાથે પધારજો. આપની જગ્યા અમે રાખી છે.</p>
     <div class="orn rv" data-orn></div>
     <p class="sig rv"><span data-bind="groom.first">Kaushik</span><i>&amp;</i><span data-bind="bride.first">Janvi</span></p>
-    <p class="sigdate rv" data-bind="footerDate">8 – 10 · 12 · 2026 · Jamnagar</p>
+    <p class="sigdate rv" data-bind="footerDate">8 – 10 · 12 · 2026 · Rajkot · Jamnagar</p>
     <button class="tag rv" type="button" id="tagBtn"><span data-bind="hashtag">#KaushikWedsJanvi</span><small>કૉપિ</small></button>
     <p class="families rv" data-bind="families">With love from the Chavda Family</p>
   </div>
@@ -788,29 +807,46 @@ const INVITE = {
   heroPhoto:'../share/photo-a.jpg',
   city:'જામનગર, ગુજરાત', cityShort:'જામનગર',
   dateLong:'ગુરુવાર, ૧૦ ડિસેમ્બર ૨૦૨૬', dateDots:'૧૦ · ૧૨ · ૨૦૨૬', dateShort:'૧૦ · ૧૨ · ૨૦૨૬',
-  footerDate:'૮ – ૧૦ · ૧૨ · ૨૦૨૬ · જામનગર',
-  countdownTo:'2026-12-10T00:00:00+05:30',
-  countdownLabel:'ગુરુવાર · ૧૦ ડિસેમ્બર ૨૦૨૬',
+  footerDate:'૮ – ૧૦ · ૧૨ · ૨૦૨૬ · રાજકોટ · જામનગર',
+  countdownTo:'2026-12-10T11:30:00+05:30',
+  countdownLabel:'ગુરુવાર · ૧૦ ડિસેમ્બર ૨૦૨૬ · લગ્ન મુહૂર્ત સવારે ૧૧:૩૦',
   saveTheDate:{ date:'2026-12-10' },
-  venue:{ name:'બજરંગ વાડી', address:'જામનગર – રાજકોટ હાઇવે, વિક્ટોરિયા બ્રિજ પાસે, સ્વામિનારાયણ નગર, જામનગર, ગુજરાત ૩૬૧૦૦૧',
+  venue:{ when:'દિવસ ૩ · લગ્ન મુહૂર્ત', name:'બજરંગ વાડી', address:'જામનગર – રાજકોટ હાઇવે, વિક્ટોરિયા બ્રિજ પાસે, સ્વામિનારાયણ નગર, જામનગર, ગુજરાત ૩૬૧૦૦૧',
     plusCode:'F3FJ+42G',
     mapsQuery:'F3FJ+42G Bajrang Vadi, Jamnagar - Rajkot Hwy, near Victoria Bridge, Swaminarayan Nagar, Jamnagar, Gujarat 361001' },
+  venue2:{ when:'દિવસ ૧ અને ૨ · જાન પ્રસ્થાન', name:'શ્રી નંદકિશોર હોલ', address:'જંક્શન પ્લોટ મેઇન રોડ, જંક્શન રેલવે સ્ટેશનની સામે, રેલવે ગાર્ડ ક્વાર્ટર્સ પાસે, ગાયકવાડી, શાસ્ત્રી નગર, રાજકોટ, ગુજરાત ૩૬૦૦૦૧',
+    mapsQuery:'Shri Nandkishore Hall, Junction Plot Main Road, opposite Junction Railway Station, Gayakwadi, Shastri Nagar, Rajkot, Gujarat 360001' },
+  ui:{ directions:'રસ્તો જુઓ', copyAddress:'સરનામું કૉપિ કરો', mapNote:'પ્રતીકાત્મક નકશો', mapFont:'Rasa, Noto Serif Gujarati, serif' },
+  map2:{ station:'રાજકોટ જંક્શન', rail:'રેલવે', road:'જંક્શન પ્લોટ મેઇન રોડ', quarters:'રેલવે ક્વાર્ટર્સ', area:'શાસ્ત્રી નગર', area2:'ગાયકવાડી', pin:'શ્રી નંદકિશોર હોલ', north:'ઉ' },
   events:[
-    { id:'sangeet', name:'સાંજી ના ગીત', icon:'sangeet', color:'#B0386A', allDay:'2026-12-08', dayLabel:'મંગળવાર, ૮ ડિસેમ્બર',
-      day:'મંગળવાર · ૮ ડિસેમ્બર ૨૦૨૬', when:'સાંજે', where:'બજરંગ વાડી, જામનગર', dress:'પરંપરાગત / ઉત્સવનો પહેરવેશ',
+    { id:'sangeet', name:'સાંજી ના ગીત', icon:'sangeet', color:'#B0386A', at:'rajkot', dayKey:'2026-12-08', dayLabel:'મંગળવાર, ૮ ડિસેમ્બર',
+      start:'2026-12-08T17:00:00+05:30', end:'2026-12-08T20:00:00+05:30',
+      day:'મંગળવાર · ૮ ડિસેમ્બર ૨૦૨૬', when:'સાંજે ૫:૦૦', where:'શ્રી નંદકિશોર હોલ, રાજકોટ', dress:'પરંપરાગત / ઉત્સવનો પહેરવેશ',
       blurb:'બંને પરિવારો સાથે મળીને ગવાતા પરંપરાગત લગ્નગીતોની સાંજથી ઉત્સવની શુભ શરૂઆત.' },
-    { id:'mandva', name:'માંડવા મુહૂર્ત', icon:'mandva', color:'#C0702A', allDay:'2026-12-09', dayLabel:'બુધવાર, ૯ ડિસેમ્બર',
-      day:'બુધવાર · ૯ ડિસેમ્બર ૨૦૨૬', when:'સવારે', where:'બજરંગ વાડી, જામનગર', dress:'પરંપરાગત પહેરવેશ',
+    { id:'mandva', name:'માંડવા મુહૂર્ત', icon:'mandva', color:'#C0702A', at:'rajkot', dayKey:'2026-12-09', dayLabel:'બુધવાર, ૯ ડિસેમ્બર',
+      start:'2026-12-09T08:00:00+05:30', end:'2026-12-09T10:00:00+05:30',
+      day:'બુધવાર · ૯ ડિસેમ્બર ૨૦૨૬', when:'સવારે ૮:૦૦', where:'શ્રી નંદકિશોર હોલ, રાજકોટ', dress:'પરંપરાગત પહેરવેશ',
       blurb:'પૂજા અને વડીલોના આશીર્વાદ સાથે માંડવો રોપીને લગ્નવિધિની શુભ શરૂઆત.' },
-    { id:'haldi', name:'પીઠી (હલદી)', icon:'haldi', color:'#D9A520', allDay:'2026-12-09', dayLabel:'બુધવાર, ૯ ડિસેમ્બર',
-      day:'બુધવાર · ૯ ડિસેમ્બર ૨૦૨૬', when:'બપોરે', where:'બજરંગ વાડી, જામનગર', dress:'પીળા રંગના વસ્ત્રો',
+    { id:'haldi', name:'પીઠી (હલદી)', icon:'haldi', color:'#D9A520', at:'rajkot', dayKey:'2026-12-09', dayLabel:'બુધવાર, ૯ ડિસેમ્બર',
+      start:'2026-12-09T16:00:00+05:30', end:'2026-12-09T18:00:00+05:30',
+      day:'બુધવાર · ૯ ડિસેમ્બર ૨૦૨૬', when:'બપોરે ૪:૦૦', where:'શ્રી નંદકિશોર હોલ, રાજકોટ', dress:'પીળા રંગના વસ્ત્રો',
       blurb:'હલદી, આશીર્વાદ અને ખૂબ બધું હાસ્ય. એવાં કપડાં પહેરજો કે થોડાં પીળાં થાય તો વાંધો નહીં.' },
-    { id:'dandiya', name:'દાંડિયા રાસ', icon:'dandiya', color:'#7A3E9D', allDay:'2026-12-09', dayLabel:'બુધવાર, ૯ ડિસેમ્બર',
-      day:'બુધવાર · ૯ ડિસેમ્બર ૨૦૨૬', when:'સાંજે', where:'બજરંગ વાડી, જામનગર', dress:'ચણિયાચોળી / કેડિયું',
+    { id:'dandiya', name:'દાંડિયા રાસ', icon:'dandiya', color:'#7A3E9D', at:'rajkot', dayKey:'2026-12-09', dayLabel:'બુધવાર, ૯ ડિસેમ્બર',
+      start:'2026-12-09T19:00:00+05:30', end:'2026-12-09T23:00:00+05:30',
+      day:'બુધવાર · ૯ ડિસેમ્બર ૨૦૨૬', when:'સાંજે ૭:૦૦', where:'શ્રી નંદકિશોર હોલ, રાજકોટ', dress:'ચણિયાચોળી / કેડિયું',
       blurb:'રોશની વચ્ચે ગરબા અને દાંડિયાની રાત. આપના શ્રેષ્ઠ સ્ટેપ્સ અને રંગબેરંગી પહેરવેશ સાથે પધારજો.' },
-    { id:'wedding', name:'શુભ લગ્ન', icon:'agni', color:'#B1272F', main:true, allDay:'2026-12-10', dayLabel:'ગુરુવાર, ૧૦ ડિસેમ્બર',
-      day:'ગુરુવાર · ૧૦ ડિસેમ્બર ૨૦૨૬', when:'', where:'બજરંગ વાડી, જામનગર', dress:'પરંપરાગત ભારતીય પહેરવેશ',
+    { id:'jaan', name:'જાન પ્રસ્થાન', icon:'route', color:'#8A672A', at:'rajkot', dayKey:'2026-12-10', dayLabel:'ગુરુવાર, ૧૦ ડિસેમ્બર',
+      start:'2026-12-10T05:00:00+05:30', end:'2026-12-10T06:00:00+05:30',
+      day:'ગુરુવાર · ૧૦ ડિસેમ્બર ૨૦૨૬', when:'વહેલી સવારે ૫:૦૦', where:'શ્રી નંદકિશોર હોલ, રાજકોટથી', dress:'',
+      blurb:'વરરાજાની જાન લગ્ન માટે રાજકોટથી જામનગર જવા પ્રસ્થાન કરશે. જાનમાં જોડાવા વહેલા પધારજો.' },
+    { id:'wedding', name:'શુભ લગ્ન', icon:'agni', color:'#B1272F', main:true, at:'jamnagar', dayKey:'2026-12-10', dayLabel:'ગુરુવાર, ૧૦ ડિસેમ્બર',
+      start:'2026-12-10T11:30:00+05:30', end:'2026-12-10T14:00:00+05:30',
+      day:'ગુરુવાર · ૧૦ ડિસેમ્બર ૨૦૨૬', muhurat:'લગ્ન મુહૂર્ત · સવારે ૧૧:૩૦', when:'સવારે ૧૧:૩૦', where:'બજરંગ વાડી, જામનગર', dress:'પરંપરાગત ભારતીય પહેરવેશ',
       blurb:'સગાં-સ્નેહીઓની હાજરીમાં અમે સાત ફેરા લઈ નવા જીવનની શરૂઆત કરીશું. આપ જરૂર પધારજો.' }
+  ],
+  tips2:[
+    { icon:'pin', title:'કેવી રીતે પહોંચવું', text:'રાજકોટ જંક્શન રેલવે સ્ટેશનની બરાબર સામે, જંક્શન પ્લોટ મેઇન રોડ પર, ગાયકવાડીમાં રેલવે ગાર્ડ ક્વાર્ટર્સ પાસે.', copy:'Shri Nandkishore Hall, Junction Plot Main Road, opposite Junction Railway Station, near the Railway Guard quarters, Gayakwadi, Shastri Nagar, Rajkot, Gujarat 360001' },
+    { icon:'route', title:'જાન પ્રસ્થાન', text:'જાન ગુરુવાર, ૧૦ ડિસેમ્બરે વહેલી સવારે ૫:૦૦ વાગ્યે હોલથી બજરંગ વાડી, જામનગર જવા નીકળશે.' }
   ],
   tips:[
     { icon:'pin', title:'કેવી રીતે પહોંચવું', text:'સ્થળ જામનગર – રાજકોટ હાઇવે પર, સ્વામિનારાયણ નગરમાં વિક્ટોરિયા બ્રિજની નજીક છે. લાઇવ નેવિગેશન માટે “રસ્તો જુઓ” પર ટેપ કરો.' },
@@ -935,6 +971,7 @@ const ICONS = {
   haldi: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">${Array.from({ length: 8 }, (_, i) => `<ellipse cx="24" cy="12.5" rx="4" ry="7.5" transform="rotate(${i * 45} 24 24)"/>`).join('')}<circle cx="24" cy="24" r="5" fill="currentColor" fill-opacity=".25"/></svg>`,
   sangeet: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="9" cy="24" rx="3.2" ry="9.5"/><ellipse cx="39" cy="24" rx="3.2" ry="9.5"/><path d="M9 14.5C18 11 30 11 39 14.5M9 33.5C18 37 30 37 39 33.5"/><path d="M12 15.5 16 32.5 20 14 24 33.5 28 14 32 32.5 36 15.5" stroke-width="1.1"/></svg>`,
   agni: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 31h34M10 31l3.5 9h21l3.5-9"/><path d="M24 6c6.5 6.5 8 12.5 4.5 18 0-3-1.5-4.5-3-6 .2 3.4-1.6 5-3.6 6.6C20 21 19.5 18 21 15c-3.6 3-5 6.6-3 10.4-4-3.6-2.6-11.6 6-19.4Z" fill="currentColor" fill-opacity=".18"/><path d="M17 31c1.5-2.5 4-3.6 7-3.6s5.5 1.1 7 3.6"/></svg>`,
+  route: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 38c-4-5-7-8-7-12a7 7 0 0 1 14 0c0 4-3 7-7 12Z" fill="currentColor" fill-opacity=".15"/><circle cx="12" cy="26" r="2.4"/><path d="M36 22c-3.4-4.2-6-6.8-6-10a6 6 0 0 1 12 0c0 3.2-2.6 5.8-6 10Z" fill="currentColor" fill-opacity=".15"/><circle cx="36" cy="12" r="2"/><path d="M14 40c8 2 16-2 18-10s2-6 4-8" stroke-dasharray="2.4 3" stroke-linecap="round"/></svg>`,
   mandva: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 18 24 7l16 11"/><path d="M6 18h36"/><path d="M11 18v22M37 18v22M8 40h32"/><path d="M19 40v-4c0-3 2-5 5-5s5 2 5 5v4" fill="currentColor" fill-opacity=".15"/><path d="M21 31c0-2 1.3-3 3-3s3 1 3 3"/><path d="M24 25v3M22 25h4"/><path d="M15 18c1 2.4 2.6 3.6 4.5 3.6M33 18c-1 2.4-2.6 3.6-4.5 3.6" stroke-width="1.1"/></svg>`,
   dandiya: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 40 34 9M36 40 14 9" stroke-width="2.2" stroke-linecap="round"/><path d="M15 36l3 2.2M33 36l-3 2.2M29 13l3 2.2M19 13l-3 2.2" stroke-width="1.1"/><circle cx="24" cy="24" r="3" fill="currentColor" fill-opacity=".25"/><path d="M8 8l1.2 2.6L12 12l-2.8 1.2L8 16l-1.2-2.8L4 12l2.8-1.4zM40 30l1 2 2 1-2 1-1 2-1-2-2-1 2-1z" fill="currentColor" stroke="none"/></svg>`,
   mehendi: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 42C11 40 7 28 12 19 17 10 30 8 35 16c4 7 0 15-7 15-5 0-7-4-5-8 1.6-3 6-3 7 0" fill="currentColor" fill-opacity=".14"/><path d="M22 42c4-3 6-6 6-11" stroke-width="1.1"/><circle cx="38" cy="8" r="1.4" fill="currentColor" stroke="none"/><circle cx="41" cy="14" r="1.1" fill="currentColor" stroke="none"/><circle cx="9" cy="34" r="1.1" fill="currentColor" stroke="none"/><path d="M15 22c2 1 3 3 2.5 5M19 16c2.4.4 4 2 4.4 4" stroke-width="1"/></svg>`,
@@ -991,6 +1028,37 @@ function mapSVG() {
   </g>
   <g transform="translate(118 222)"><rect x="0" y="0" width="104" height="24" rx="12" fill="#0B2B22"/><text x="52" y="16" text-anchor="middle" ${L} font-size="12" letter-spacing=".5" fill="#F2DFA7">બજરંગ વાડી</text></g>
   <g transform="translate(360 46)" stroke="#8A672A" fill="none"><circle r="15" stroke-width=".8"/><path d="M0-12 4 0 0 12-4 0Z" fill="#C9A55A" stroke="none"/><path d="M0-12 4 0H-4Z" fill="#8A672A" stroke="none"/><text y="-19" text-anchor="middle" ${L} font-size="10" fill="#8A672A" stroke="none">ઉ</text></g>
+  <rect x="8" y="8" width="384" height="284" rx="16" fill="none" stroke="#C9A55A" stroke-width=".8" stroke-dasharray="3 4"/>
+</svg>`;
+}
+
+function mapSVG2() {
+  const M = INVITE.map2, F = `font-family="${INVITE.ui.mapFont}" font-weight="600"`;
+  let ties = ''; for (let x = 6; x < 400; x += 9) ties += `<path d="M${x} 58v16"/>`;
+  return `<svg viewBox="0 0 400 300" role="img" aria-label="${esc(INVITE.venue2.name)}, ${esc(INVITE.venue2.address)}">
+  <defs><pattern id="mp2" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="#D9C2A8"/></pattern></defs>
+  <rect width="400" height="300" fill="#F8EEE4"/><rect width="400" height="300" fill="url(#mp2)"/>
+  <g fill="#EFE0CF"><rect x="26" y="96" width="70" height="40" rx="6"/><rect x="250" y="96" width="62" height="40" rx="6"/><rect x="322" y="96" width="52" height="40" rx="6"/><rect x="30" y="196" width="80" height="44" rx="6"/><rect x="30" y="250" width="60" height="30" rx="6"/></g>
+  <g stroke="#B69A7B" stroke-width="1.1">${ties}</g>
+  <path d="M0 61H400M0 71H400" stroke="#8A7362" stroke-width="1.6"/>
+  <text x="380" y="52" text-anchor="end" ${F} font-size="8.5" letter-spacing="2" fill="#A0835F">${esc(M.rail)}</text>
+  <g transform="translate(112 86)"><rect width="108" height="34" rx="3" fill="#E9D9C4" stroke="#8A672A" stroke-width=".8"/><path d="M-4 0h116l-10-10H6z" fill="#C9A55A"/><path d="M10 34V16h12v18M44 34V16h12v18M78 34V16h12v18" stroke="#8A672A" stroke-width=".7" fill="none"/></g>
+  <text x="166" y="138" text-anchor="middle" ${F} font-size="10" letter-spacing="1" fill="#8A7362">${esc(M.station)}</text>
+  <path d="M-10 166C120 158 260 160 410 168" stroke="#E2CCB2" stroke-width="18" fill="none"/>
+  <path d="M-10 166C120 158 260 160 410 168" stroke="#fff" stroke-width="13" fill="none"/>
+  <path d="M-10 166C120 158 260 160 410 168" stroke="#E7B65A" stroke-width="1.2" fill="none" stroke-dasharray="8 7"/>
+  <text x="300" y="154" text-anchor="middle" ${F} font-size="8" letter-spacing="1.2" fill="#A0835F">${esc(M.road)}</text>
+  <path d="M236 300C232 250 238 210 236 170M120 170C126 220 118 260 124 300" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <g fill="#E6D3BC" stroke="#B69A7B" stroke-width=".6"><rect x="252" y="190" width="30" height="20" rx="2"/><rect x="290" y="190" width="30" height="20" rx="2"/><rect x="328" y="190" width="30" height="20" rx="2"/><rect x="252" y="218" width="30" height="20" rx="2"/><rect x="290" y="218" width="30" height="20" rx="2"/></g>
+  <text x="305" y="256" text-anchor="middle" ${F} font-size="9.5" letter-spacing=".8" fill="#8A7362">${esc(M.quarters)}</text>
+  <text x="70" y="190" text-anchor="middle" ${F} font-size="9.5" letter-spacing=".8" fill="#8A7362">${esc(M.area)}</text>
+  <text x="340" y="88" text-anchor="middle" ${F} font-size="9.5" letter-spacing=".8" fill="#8A7362">${esc(M.area2)}</text>
+  <g transform="translate(170 216)">
+    <circle class="pulse" r="12" fill="#B1272F" opacity=".35"/><circle class="pulse b" r="12" fill="#B1272F" opacity=".35"/>
+    <g class="pin"><path d="M0 0C-3-8-12-13-12-23a12 12 0 0 1 24 0C12-13 3-8 0 0Z" fill="#B1272F"/><circle cy="-23" r="4.6" fill="#FBF6EF"/></g>
+  </g>
+  <g transform="translate(108 240)"><rect width="128" height="24" rx="12" fill="#0B2B22"/><text x="64" y="16" text-anchor="middle" ${F} font-size="9.5" letter-spacing="1" fill="#F2DFA7">${esc(M.pin)}</text></g>
+  <g transform="translate(40 40)" stroke="#8A672A" fill="none"><circle r="14" stroke-width=".8" fill="#F8EEE4"/><path d="M0-11 4 0 0 11-4 0Z" fill="#C9A55A" stroke="none"/><path d="M0-11 4 0H-4Z" fill="#8A672A" stroke="none"/><text y="-18" text-anchor="middle" ${F} font-size="9" fill="#8A672A" stroke="none">${esc(M.north)}</text></g>
   <rect x="8" y="8" width="384" height="284" rx="16" fill="none" stroke="#C9A55A" stroke-width=".8" stroke-dasharray="3 4"/>
 </svg>`;
 }
@@ -1301,14 +1369,15 @@ lb.addEventListener('pointerup', e => { if (sx == null) return; const dx = e.cli
 $('#cdDate').textContent = INVITE.countdownLabel;
 const mainEv = INVITE.events.find(e => e.main) || INVITE.events[0];
 const details = `${INVITE.groom.first} & ${INVITE.bride.first} ના શુભ લગ્ન પ્રસંગ`;
-$('#saveDate').href = gcal(`${INVITE.groom.first} & ${INVITE.bride.first} · ${mainEv.name}`, mainEv.start, mainEv.end, details, INVITE.venue.mapsQuery, mainEv.allDay);
+$('#saveDate').href = gcal(`${INVITE.groom.first} & ${INVITE.bride.first} · ${mainEv.name}`, mainEv.start, mainEv.end, details, INVITE.venue.mapsQuery);
 
 // events
 let lastDay = null, dayN = 0;
 $('#timeline').insertAdjacentHTML('beforeend', INVITE.events.map((e, i) => {
   let mark = '';
-  if (e.allDay && e.allDay !== lastDay) { lastDay = e.allDay; dayN++; mark = `<div class="day-mark rv"><span class="dm-k">દિવસ ${toGu(dayN)}</span><span class="dm-d">${esc(e.dayLabel || e.day)}</span></div>`; }
-  const loc = `${e.where}, ${INVITE.venue.name}, ${INVITE.venue.address}`;
+  const V = e.at === 'rajkot' ? INVITE.venue2 : INVITE.venue;
+  const key = e.dayKey || e.allDay;
+  if (key && key !== lastDay) { lastDay = key; dayN++; mark = `<div class="day-mark rv"><span class="dm-k">દિવસ ${toGu(dayN)}</span><span class="dm-d">${esc(e.dayLabel || e.day)}</span></div>`; }
   return mark + `<article class="ev rv${e.main ? ' main' : ''}" style="--c:${e.color};--d:.05s">
     <div class="ev-medal">${ICONS[e.icon] || ''}</div>
     <div class="ev-card" data-tilt>
@@ -1323,8 +1392,8 @@ $('#timeline').insertAdjacentHTML('beforeend', INVITE.events.map((e, i) => {
         ${e.dress ? `<div><dt>પહેરવેશ</dt><dd>${esc(e.dress)}</dd></div>` : ''}
       </dl>
       <div class="ev-actions">
-        <a class="btn ${e.main ? 'btn-dark' : 'btn-dark'}" href="${gcal(`${INVITE.groom.first} & ${INVITE.bride.first} · ${e.name}`, e.start, e.end, details, e.allDay ? INVITE.venue.mapsQuery : loc, e.allDay)}" target="_blank" rel="noopener">${CAL_ICON}કેલેન્ડરમાં ઉમેરો</a>
-        <a class="btn btn-line" href="${mapsUrl(INVITE.venue.mapsQuery)}" target="_blank" rel="noopener">${PIN_ICON}રસ્તો જુઓ</a>
+        <a class="btn ${e.main ? 'btn-dark' : 'btn-dark'}" href="${gcal(`${INVITE.groom.first} & ${INVITE.bride.first} · ${e.name}`, e.start, e.end, details, V.mapsQuery, e.allDay)}" target="_blank" rel="noopener">${CAL_ICON}કેલેન્ડરમાં ઉમેરો</a>
+        <a class="btn btn-line" href="${mapsUrl(V.mapsQuery)}" target="_blank" rel="noopener">${PIN_ICON}રસ્તો જુઓ</a>
       </div>
     </div>
   </article>`;
@@ -1335,6 +1404,9 @@ if (INVITE.events.length === 1) $('#timeline').classList.add('single');
 $('#map').innerHTML = mapSVG() + '<span class="map-note">પ્રતીકાત્મક નકશો</span>';
 $('#dirBtn').href = mapsUrl(INVITE.venue.mapsQuery);
 $('#tips').innerHTML = INVITE.tips.map(t => `<li>${ICONS[t.icon] || ''}<div><b>${esc(t.title)}</b><p>${esc(t.text)}</p>${t.copy ? `<button class="btn btn-line tip-copy" type="button" data-copy="${esc(t.copy)}">પ્લસ કોડ કૉપિ કરો</button>` : ''}</div></li>`).join('');
+$('#map2').innerHTML = mapSVG2() + `<span class="map-note">${esc(INVITE.ui.mapNote)}</span>`;
+$('#dirBtn2').href = mapsUrl(INVITE.venue2.mapsQuery);
+$('#tips2').innerHTML = INVITE.tips2.map(t => `<li>${ICONS[t.icon] || ''}<div><b>${esc(t.title)}</b><p>${esc(t.text)}</p>${t.copy ? `<button class="btn btn-line tip-copy" type="button" data-copy="${esc(t.copy)}">${esc(INVITE.ui.copyAddress)}</button>` : ''}</div></li>`).join('');
 $$('[data-copy]').forEach(b => b.addEventListener('click', () => copy(b.dataset.copy, b.previousElementSibling)));
 
 // footer diyas
