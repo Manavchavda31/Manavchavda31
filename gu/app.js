@@ -64,7 +64,7 @@ const INVITE = {
   tips:[
     { icon:'pin', title:'કેવી રીતે પહોંચવું', text:'રાજકોટ જંક્શન રેલવે સ્ટેશનની બરાબર સામે, જંક્શન પ્લોટ મેઇન રોડ પર, ગાયકવાડીમાં રેલવે ગાર્ડ ક્વાર્ટર્સ પાસે.', copy:'Shri Nandkishore Hall, Junction Plot Main Road, opposite Junction Railway Station, near the Railway Guard quarters, Gayakwadi, Shastri Nagar, Rajkot, Gujarat 360001' }
   ],
-  music:'' /* the song file; starts softly when the seal is tapped */
+  music:'../share/kudmayi.mp3' /* the song file; starts softly when the seal is tapped */
 };
 
 
